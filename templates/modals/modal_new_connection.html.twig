@@ -1,0 +1,114 @@
+
+<form action="" method="POST" id="modal-form">
+	<input type="hidden" name="form-name" id="form-name" value="{{formName}}">
+	<input type="hidden" name="step" id="step" value="{{step}}">
+	<input type="hidden" name="previous-step" id="previous-step" value="{{previousStep}}">
+
+    <div class="modal-body">
+        {% if message %}
+        <div class="alert alert-danger" role="alert">
+            {{message|raw}}
+        </div>
+         {% endif %}     
+
+        <div class="row">
+        <div class="d-flex picto-haut">
+           
+            <div class="d-flex justify-content-end croix">
+                <a href="#"><img src="/assets/icones/cross.svg" alt="Croix blanche"></a>
+            </div>
+        </div>
+        <div class="bandeau-blanc col-12">
+            <h1 class="text-center">Mes informations personnelles</h1>
+        </div>
+        <div class="col-12">
+            <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25"
+                aria-valuemin="0" aria-valuemax="100" style="height: 10px">
+                <div class="progress-bar" style="width: 10%"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="icone-titre col-12">
+                <img class="moncompte" src="/assets/icones/compte.svg" alt="Compte">
+                <span class="compte" href="#">Saisissez vos informations :</span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="gender-f" value="gender-f" checked>
+                <label class="form-check-label" for="gender-f">Madame</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="gender-h" value="gender-h">
+                <label class="form-check-label" for="gender-h">Monsieur</label>
+            </div>
+            <div class="col-md-6">
+                <label for="lastname" class="form-label">Nom*</label>
+                <input type="text" name ="lastname" id ="lastname" class="input-infos-persos form-control" placeholder="Willem" value="{{lastname}}">
+            </div>
+            <div class="col-md-6">
+                <label for="firstname" class="form-label">Prénom*</label>
+                <input type="text" name = "firstname" id ="firstname" class="input-infos-persos form-control" placeholder="Laurent" value="{{firstname}}">
+            </div>
+            <div class="col-md-6">
+                <label for="dateOfBirth" class="form-label">Date de naissance*</label>
+                <input type="date" name="dateOfBirth" id = "dateOfBirth" class="input-infos-persos form-control" placeholder="15/07/1991" value="{{dateOfBirth}}">
+            </div>
+            <div class="col-md-6">
+                <label for="password" class="form-label">Mot de passe*</label>
+                <input type="password" name ="password" id = "password" class="input-infos-persos form-control" placeholder="XXXXXXXXXX" value="aaaaaa">
+            </div>
+            <div class="col-md-6">
+                <label for="checkPassword" class="form-label">Confirmer le mot de passe*</label>
+                <input type="password" name = "checkPassword" id = "checkPassword" class="input-infos-persos form-control" placeholder="XXXXXXXXXX" value="aaaaaa">
+            </div>
+        </div>
+        <div class="partie-droite col-md-6">
+            <div class="col-md-6">
+                <label for="email" class="form-label">Adresse email*</label>
+                <input type="email" name = "email" id = "email" class="input-infos-persos form-control" placeholder="laurent.willem@gmail.com" value="{{email}}">
+            </div>
+            <div class="col-md-6">
+                <label for="phone" class="form-label">Téléphone mobile</label>
+                <input type="tel" name="phone" id ="phone" class="input-infos-persos form-control" placeholder="06 XX XX XX XX" value="{{phone}}">
+            </div>
+            <div class="col-12">
+                <label for="address" class="form-label">Adresse</label>
+                <input type="text" name="address" id = "address" class="input-infos-persos form-control" placeholder="12 rue de Tassigny" value="{{address}}">
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="postalCode" class="form-label">Code Postal</label>
+                    <input type="text" name="postalCode" id = "postalCode" class="input-infos-persos form-control" placeholder="91230" value="{{postalCode}}">
+                </div>
+                <div class="col-md-6">
+                    <label for="city" class="form-label">Ville</label>
+                    <input type="text" name="city" id = "city" class="input-infos-persos form-control" placeholder="Arpajon" value="{{city}}">
+                </div>
+            </div>
+            <div class="col-12">
+                <label for="country" class="form-label">Pays</label>
+                <input type="text"  name="country" id="country" class="input-infos-persos form-control" placeholder="France" value="{{country}}">
+            </div>
+        </div>
+      
+
+        <div class="d-flex justify-content-between">
+
+            <div class="phrase-modale">
+                <div>*Champs obligatoires<br></div>
+            </div>
+            
+            <div class="suivant">
+                
+                 <button type="submit" id="submit" class="secondaire bouton-modale">
+                    Suivant <img src="/assets/icones/arrow-s.svg" alt="Flèche droite bleue">
+                </button>
+            </div>
+
+        </div>
+    </div>
+      
+    </div>
+   
+</form>

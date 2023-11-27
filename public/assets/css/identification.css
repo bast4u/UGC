@@ -1,0 +1,59 @@
+/* CSS connexion/incription*/
+
+a.identification {
+   
+    text-decoration: none;
+    color: #fffcfc;
+
+}
+.bouton-retour button a{
+text-decoration: none;
+color: #fffcfc;
+}
+
+.filet{
+    border-bottom: #A31F58 solid 5px;
+    
+    opacity: 1 !important;
+}
+.taille-titre{
+    font-family: 'uniform-medium';
+    font-size: 1.87rem;
+    text-transform: uppercase;
+    /* width: 300px; */
+}
+.mentions{
+    font-family: 'uniform-regular';
+    font-size: 0.75rem;
+    text-align: justify;
+    hyphens: auto;
+    padding-bottom: 20px;
+}
+.filet-fin{
+    border-bottom: #A31F58 solid 2px;
+}
+.taille-connexion{  
+    font-family: 'uniform-medium';
+    font-size: 1.87rem;
+}
+.titre-color{  
+    opacity: 0.5;
+}
+.size-email, 
+.validation{
+    max-width: 75%;
+    margin: 10px ;
+}
+
+.bouton-inscrire{ 
+
+   
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 10px;
+    font-size: 0.94rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing:0.75px; 
+
+}

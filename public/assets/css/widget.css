@@ -1,0 +1,149 @@
+/* CSS CARD FILM COMPTE */
+
+
+/* CSS PAGE INDEX */
+
+.hp {
+    padding-bottom: 50px;
+    border-bottom: #A31F58 10px solid;
+}
+
+#screen.hp img{
+    width:auto;
+}
+
+.hp .central {
+    align-items: center;
+}
+
+#widget {
+    background: var(--radial-gradient-bas-de-page, radial-gradient(78.01% 36.06% at 50.00% 100.00%, #00558E 0%, #010A3D 99.56%));
+    width: 95%;
+    position: relative;
+    padding: 0 0px 30px 75px;
+    margin-top: 50px;
+    border-radius: 0 0 10px 10px;
+
+}
+
+/* CSS ZONE INFOS PERSOS */
+
+#widget .infos {
+    justify-content: space-between;
+}
+
+.infos h1 {
+    background-color: #FFFCFC;
+    color: #010A3D;
+    padding: 8px 20px;
+    border-radius: 10px;
+    ;
+
+}
+
+.infos h1 .normal {
+    font-family: 'uniform-regular';
+
+}
+
+.infos .prenom {
+    font-family: 'uniform-regular';
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+
+}
+
+.zone-points {
+    align-items: center;
+    text-align: center;
+}
+
+.zone-points .picto-points {
+    border-radius: 100px;
+    border: #40B3D1 3px solid;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    padding-top: 5px;
+    margin-right: 20px;
+}
+
+.picto-points p {
+    font-size: 27px;
+
+}
+
+p.date-max {
+    font-size: 25px;
+
+}
+
+
+/* CSS SPECIFIQUES CARD WIDGET */
+.seance {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    border-bottom: #A31F58 1px solid;
+    padding-bottom: 10px;
+}
+
+.seance p {
+    font-family: 'uniform-medium';
+    font-size: 1.1rem;
+}
+
+.bleu {
+    color: #40B3D1;
+}
+
+.data {
+    justify-content: space-between;
+}
+
+.card .data p.titre {
+    color: #40B3D1;
+    font-family: 'uniform-medium';
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.card .data p.titre {
+    color: #40B3D1;
+    font-family: 'uniform-medium';
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.card .places span.nb {
+    font-family: 'uniform-black';
+    font-size: 1.25rem;
+}
+
+.card .data p.places {
+    font-size: 1rem;
+    letter-spacing: 5%;
+    line-height: 15px;
+    margin-left: 6px;
+}
+
+
+/* CSS SLIDER SPECIFIQUES WIDGET */
+
+.d-flex-slider {
+    flex-basis: 100%;
+    display: flex;
+    padding-top: 50px;
+    overflow: hidden;
+    align-items: center;
+
+}
+
+img.arrow-widget {
+    position: absolute;
+    top: 350px;
+    left: 80%;
+    z-index: 100;
+    width: 54px;
+}

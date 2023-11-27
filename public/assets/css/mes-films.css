@@ -1,0 +1,67 @@
+
+
+.bloc-liste img{
+    width:50px;
+    height:auto;
+}
+
+
+.d-flex-slider{
+     flex-basis:100%;
+     display:flex;
+     padding-top: 50px;
+     overflow: hidden;
+
+    
+ }
+
+img .icone-cta{
+    margin-right:10px;
+    width:20px;  
+}
+
+.d-flex-slider {
+    position: relative;
+}
+
+.slider-control{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-image: url('../icones/bouton-slider.svg');
+    background-size: cover;
+    z-index: 999;
+}
+.slider-control-left {
+    left: 0;
+    transform: rotate(.5turn);
+}
+.slider-control-right {
+    right: 0;
+}
+
+.arrow-film {
+    position:absolute;
+   
+    width: 74px;
+    height: 74px;
+    background-image: url("../icones/bouton-slider.svg");
+    top:310px;
+    left:94%;
+    z-index: 100;
+}
+
+.film{
+    max-height: 496px;
+}
+
+
+
+
+
+
+
+
+

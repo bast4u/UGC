@@ -1,0 +1,41 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+    env(MONGODB_URL): ''
+    env(MONGODB_DB): ''
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\Validator\PostalCodeValidator:
+        tags: ['validator.constraint_validator']
+
+    App\CustomAuthenticator: # Replace with your actual class name and namespace
+        # Define the class and any necessary dependencies
+        class: App\Security\AppCustomAuthenticator
+        arguments:
+            # Arguments for the constructor if required
+            # - argument1: '@service_id'
+        tags:
+            - { name: security.authenticator }
+
+    security.command.debug_firewall:
+        class: App\Security\AppCustomAuthenticator # Update the service reference here
+
+
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones

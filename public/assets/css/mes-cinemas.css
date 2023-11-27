@@ -1,0 +1,137 @@
+/* CSS MES CINEMAS SME */
+.labelvillecp {
+    display: block;
+    margin: 8px 0;
+}
+
+.inputvillecp {
+    border: 1px solid #40B3D1;
+    background-color: transparent;
+    border-radius: 10px;
+    background-image: url(../icones/loupe-s-bleu-lumiere.svg);
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    color: #40B3D1;
+    font-family: "uniform-regular";
+    font-size: 1.25rem;
+    padding: 8px 20px 8px 30px;
+    /* width:30%; */
+    margin-top: 50px;
+}
+.inputvillecp:focus{
+    background-color: #fffcfc;
+    color: #010A3D;
+}
+
+.inputvillecp::placeholder {
+    color: #40B3D1;
+
+}
+
+.cinema {
+    width: 250px !important;
+}
+
+hr {
+    background-color: #A31F58;
+    margin-bottom: 50px;
+    border: 0;
+    width: 100%;
+    height: 1px;
+    opacity: 1;
+}
+
+.bloc-cinemas {
+    justify-content: space-between;
+
+    margin-top: 50px;
+
+    font-family: 'uniform-regular';
+
+}
+
+h3 {
+    font-family: 'uniform-regular';
+    font-size: 1.25rem;
+    margin-top: 20px;
+}
+
+span.ville-cine {
+    color: #40B3D1;
+}
+
+
+.bloc-cinemas article {
+    position: relative;
+    text-align: center;
+}
+
+.bloc-cinemas .card h3 {
+    font-family: 'uniform-regular';
+    font-size: 1.9rem;
+
+}
+
+.bloc-cinemas img.cinema {
+    height: 250px;
+    border-radius: 10px;
+
+}
+
+/* .align {
+    display: flex;
+    justify-content: space-between;
+} */
+
+
+.bloc-cinemas .coeur {
+    position: absolute;
+    top: 0px;
+    right: 0em;
+    width: 50px;
+    height: auto;
+    background-color: transparent;
+    border: 0;
+}
+
+.bloc-cinemas .coeur img {
+    width: 30px;
+}
+
+a.nom-cine {
+    text-decoration: none;
+    color: #fffcfc;
+}
+
+a.nom-cine:hover {
+    text-decoration: underline;
+
+}
+
+.suppression {
+    background: transparent;
+    color: #fffcfc;
+    border: 1px solid #40B3D1;
+    border-radius: 10px;
+    font-family: 'uniform-medium';
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.96px;
+    width: 80%;
+    padding: 8px 20px;
+    left: 15%;
+    top: -30px;
+    margin-top: 10px;
+    background-image: url('../icones/cross-xs-bleu-lumiere.svg');
+    background-position: center left 90%;
+    background-repeat: no-repeat;
+
+}
+
+img.arrow-cine {
+    position: absolute;
+    top: 310px;
+    left: 97%;
+    z-index: 100;
+}

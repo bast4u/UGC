@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TestController!{% endblock %}
+
+{% block body %}
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal modal-xl fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-body">
+      {# <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> #}
+
+        <div class="d-flex picto-haut justify-content-end">
+                <div class="croix">
+                    <a href="#"><img src="assets/icones/cross.svg" alt="Croix blanche"></a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="text-center">Bonjour Laurent !</h2>
+                </div>
+                <div class="bandeau-blanc col-12">
+                    <h1 class="text-center">Nouveau sur "mon compte"</h1>
+                </div>
+                <div class="icone-titre col-12 row">
+                    <p class="text-regular ">
+                        Personnalisez votre compte personnel avec UGC !
+                    </p>
+                    <div class="espace-message">
+                    </div>
+                    <div class="row">
+                        <div class="icone-titre col-12">
+                            <img class="cine" src="assets/icones/cine-xs.svg" alt="Cine">
+                            <span class="compte" href="#"><span class="mot-bold">Ajoutez</span> vos cinémas
+                                préférés&nbsp;!</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="icone-titre col-12">
+                            <img class="bobine" src="assets/icones/bobine-s.svg" alt="Bobine">
+                            <span class="bobine" href="#"><span class="mot-bold">Consultez</span> rapidement les prochaines
+                                séances et le nombre de places
+                                restantes dans votre cinéma favori grâce au widget “Mon UGC”.</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="icone-titre col-12">
+                            <img class="abonnement" src="assets/icones/abonnement-s.svg" alt="Abonnement">
+                            <span class="abonnement" href="#"><span class="mot-bold">Définissez</span> vos préférences de
+                                films et visualisez-les en un coup
+                                d’oeil&nbsp;!
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="icone-titre col-12">
+                            <img class="cadeau" src="assets/icones/cadeau-s.svg" alt="Cadeau">
+                            <span class="cadeau" href="#"><span class="mot-bold">Découvrez</span> des offres promotionnelles
+                                personnalisées
+                            </span>
+                        </div>
+                    </div>
+                    <div class="espace-message">
+                    </div>
+                    <div class="text-regular">
+                        et bien entendu, consultez toujours toutes vos réservations !
+                    </div>
+                    <div class="row espace-fin">
+                        <div class="col-md-6">
+                        </div>
+                        <div class="col-md-2">
+                            
+                        </div>
+                        <div class="col-md-4">
+                            <a class="cta bouton-selectionne" href="modale-cinemas-preferes.html">
+                                <img src="assets/icones/select.svg" alt="select">
+                                <span>Je suis intéressé.e</span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

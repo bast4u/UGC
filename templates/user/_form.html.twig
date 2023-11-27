@@ -1,0 +1,68 @@
+{{form_start(form)}}
+{{ form_row(form._token) }}
+{{form_errors(form)}}
+
+
+{# <input type="hidden" value="{{step}}"  name="step" />
+{% if step==1 %}
+    {{ include('user/_form_step_1.html.twig') }}
+{% else %} #}
+<div class="container">
+
+    <div>
+    <p>
+    {{ form_widget(form.gender) }}
+    </p>
+    <p>
+    {{form_label(form.email )}}
+    {{form_widget(form.email )}}
+    {{form_errors(form.email )}}
+    </p>
+    <p>
+    {{form_label(form.firstname )}}
+    {{form_widget(form.firstname )}}
+    </p>
+
+    <p>
+    {{form_label(form.lastname )}}
+    {{form_widget(form.lastname )}}
+    </p>
+    
+    <p>
+    {{form_label(form.city )}}
+    {{form_widget(form.city )}}
+    </p>
+    <p>
+    {{form_label(form.phone )}}
+    {{form_widget(form.phone )}}
+    </p>
+   <p>
+        {{ form_label(form.postalCode) }}
+        {{ form_widget(form.postalCode) }}
+       
+    </p>
+    <p>
+    {{form_label(form.address)}}
+    {{form_widget(form.address)}}
+    </p> 
+
+    <p>
+    {{form_label(form.dateOfBirth)}}
+    {{form_widget(form.dateOfBirth)}}
+    </p>
+    <div class="col-1">
+{# {% endif %} #}
+{{form_widget(form.valid)}}
+    </div>
+
+ <div class="col-1">
+    <a href="{{ path('app_user_index') }}">
+        {{ form_widget(form.annuler) }}
+    </a>
+ </div>
+</div>
+
+</div>
+{{form_end(form, {render_rest:false})}}
+ 
+

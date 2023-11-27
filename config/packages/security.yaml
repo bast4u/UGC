@@ -1,0 +1,63 @@
+security:
+    # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
+    password_hashers:
+        App\Document\User: "auto"
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+
+    # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
+    providers:
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            mongodb:
+                class: App\Document\User
+                property: email
+
+    firewalls:
+        main:
+            lazy: true
+            provider: app_user_provider
+            custom_authenticators:
+                - App\Security\AppCustomAuthenticator
+            entry_point: App\Security\AppCustomAuthenticator
+            logout:
+                path: app_user_logout
+                target: app_user_login
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 604800
+                path: /
+                always_remember_me: true
+                # where to redirect after logout
+                # target: app_any_route
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#the-firewall
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/user/list, roles: ROLE_ADMIN }
+        - { path: ^/movies/update, roles: ROLE_ADMIN }
+        - { path: ^/movies/match_tmdb, roles: ROLE_ADMIN }
+        - { path: ^/movies/save_matches, roles: ROLE_ADMIN }
+        #- { path: ^/classroom, roles: ROLE_ADMIN }
+        #- { path: ^/, roles: PUBLIC_ACCESS }
+    
+    # Permet la redirection si un utilisateur essaie d'aller sur une page non autorisée
+    access_denied_url: /
+
+when@test:
+    security:
+        password_hashers:
+            # By default, password hashers are resource intensive and take time. This is
+            # important to generate secure password hashes. In tests however, secure hashes
+            # are not important, waste resources and increase test times. The following
+            # reduces the work factor to the lowest possible values.
+            Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
+                algorithm: auto
+                cost: 4 # Lowest possible value for bcrypt
+                time_cost: 3 # Lowest possible value for argon
+                memory_cost: 10 # Lowest possible value for argon

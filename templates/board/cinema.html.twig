@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon cinéma UGC{% endblock %}
+
+{% block body %}
+<main>
+        <section id="zone-centrale">
+            <div class="container">
+                <div class="row align-items-stretch">
+
+{{include ("shared/_body.html.twig")}}
+
+                    <article class="col-10 col-md-10 top-article"> <!-- zone principale droite -->
+
+                            <div class="zone-centrale">
+                            <div class="bloc-liste"> <!-- liste cinémas -->
+                                <div class="d-flex-titre">
+                                    <img class="icone-titre-rubrique" src="/assets/icones/cine-l.svg" alt="Icone bobine film">
+                                    <h2 class="rubrique">Mon cinéma</h2>
+                                </div>
+
+                                
+                                <div class="bloc-cinemas row"> <!-- zone avec toutes les cards cinéma préférés -->
+                                {% for location in selectedLocation %}
+                                    <article class="mb-5 mb-lg-0 col-12 col-md-6 col-lg-3"> <!-- items card cinema -->
+                                        <button class="coeur">
+                                            <img src="/assets/icones/favori-full.svg" alt="favori full">
+                                        </button>
+                                            <img class="cinema" src="{{location.image}}" alt="photo de cinéma {{location.name}}">
+                                            <h3>{{location.name}} - <span class="ville-cine">{{location.city}}</span></h3>
+                                            <button class="suppression">supprimer</button>
+                                    </article>
+                                {% endfor %}
+                                </div>
+
+
+                            <hr>
+                            <div class="bloc-liste"> <!-- liste de films par cinémas -->
+                                <div class="d-flex-titre">
+                                    <img class="icone-titre-rubrique" src="/assets/icones/bobine-m.svg" alt="Icone bobine film">
+                                    <h2 class="icone rubrique ">Les séances dans mon cinéma</h2>
+                                </div>
+                                {# films by cinemas #}
+								
+								<div class="d-flex-slider">
+									{% for movie in recommendedMoviesByCinema | slice(0, 4)%}
+										<!-- slider film -->
+										<article class="card-border film">
+											<div
+												class="card">
+												{# <div class="tag">Aventure</div> #}
+                                                
+												<div class="tag">{{movie.tmdbGenre}}</div>
+                                                
+												<a href="">
+                                                {# style pour régler le problème de l'affiche d'en eaux très troubles qui nous vient de l'api et qui est plus petite que les autres #}
+													<img class="affiche" src="{{movie.tmdbPoster}}" alt="{{movie.name}}" style="width: 206px; height: 309px;">
+												</a>
+
+												<div class="avis"> 
+												{% for img in imgStar[movie.id] %}
+													<img class="star" src="{{ img }}" alt="star">
+												{% endfor %}
+												</div>
+
+												<h3>{{movie.name | slice(0, 20) }}</h3>
+																		{#  #}
+												{# Afin de pouvoir afficher un synopsis qui rentre dans la card #}
+																		{#  #}
+												{# transformer la string en tableau de mots #}
+												{% set words = movie.tmdbOverview | split(' ') %}
+												{# créer une limite de mots pour que cela rentre dans la card #}
+												{% set limitedWords = words | slice(0, 10) %}
+												{# initialiser le dernier mot (car si c'est une virgule par ex cela rend : ',...') #}
+												{% set lastWord = limitedWords | last %}
+												{# Si le dernier mot du synopsis coupé est un caractère comme décris en dessous #}
+												{% if lastWord matches '/[,.;!?]$/' %}
+												{# Supprimer  #}
+													{% set lastWordWithoutPunctuation = lastWord | slice(0, -1) %}
+													{% set limitedWords = limitedWords | slice(0, -1) | merge([lastWordWithoutPunctuation]) %}
+												{% endif %}
+												{# recréer le synopsis et rajouter '...' à la fin #}
+												<p>{{ limitedWords | join(' ') ~ '...' }}</p>
+
+												<a href="#" class="bouton cta">
+													<img class="icone-cta" src="/assets/icones/ticket-xs.svg" alt="bouton réserver">
+													<span>Réserver</span>
+												</a>
+											</div>
+										</article>
+									{% endfor %}
+
+									{% if not recommendedMoviesByCinema %}
+									<h2>Veuillez renseigner vos préférences <a href="{{path('app_my_account_show')}}">Ici</a></h2>
+									{% endif %}
+								</div>
+
+							</div>
+
+							{# fin film by cinemas #}
+
+                            </div>
+                        </div>
+                    </article>
+                    <!-- FIN ZONE CENTRALE -->
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+{% endblock %}

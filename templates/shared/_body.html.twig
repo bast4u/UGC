@@ -1,0 +1,41 @@
+
+
+                    <!-- MENU GAUCHE -->
+                    <aside class="col-2 col-md-2 " id="separateur">
+                    {% if app.user %}
+                        <a class="menu-gauche {% if app.request.uri == url('app_board_cinema') %}actif{% endif %} top-menu" href="{{path('app_board_cinema')}}">
+                            <img class="icone-menu-gauche" src="../assets/icones/bobine-s.svg" alt="Icone Bobine film">
+                            <span class="d-none d-lg-inline">Mon cinéma</span>
+                        </a>
+                        <a class="menu-gauche {% if app.request.uri == url('app_board_film') %}actif{% endif %}" href="{{ path('app_board_film') }}">
+                            <img class="icone-menu-gauche" src="../assets/icones/cine-xs.svg" alt="icone Cinéma">
+                            <span class="d-none d-lg-inline">Mes films</span>
+                        </a>
+                        <a class="menu-gauche {% if app.request.uri == url('app_board_reservation') %}actif{% endif %}" href="{{path('app_board_reservation')}}">
+                            <img class="icone-menu-gauche" src="../assets/icones/ticket-s.svg" alt="Icone ticket cinéma">
+                            <span class="d-none d-lg-inline">Mes réservations</span>
+                        </a>
+                        <a class="menu-gauche {% if app.request.uri == url('app_board_fidelite') %}actif{% endif %}" href="{{path('app_board_fidelite')}}">
+                            <img class="icone-menu-gauche" src="../assets/icones/cadeau-s.svg" alt="Icone fidélité">
+                            <span class="d-none d-lg-inline">Mon espace fidélité</span>
+                        </a>
+                        <a class="menu-gauche {% if app.request.uri == url('app_my_account_show') %}actif{% endif %}" href="{{path('app_my_account_show')}}">
+                            <img class="icone-menu-gauche" src="../assets/icones/roue-xs.svg" alt="Icone paramètres">
+                            <span class="d-none d-lg-inline">Mon profil</span>
+                        </a>
+                        {% if 'ROLE_ADMIN' in app.user.roles %}
+                        <a class="menu-gauche {% if app.request.uri == url('app_my_account_admin') %}actif{% endif %}" href="{{path('app_my_account_admin')}}">
+                            <img class="icone-menu-gauche" src="../assets/icones/roue-xs.svg" alt="Icone paramètres">
+                            <span class="d-none d-lg-inline">Admin</span>
+                        </a>
+                        {% endif %}
+                        <a class="power" id="deconnecte" href="{{path('app_user_logout')}}">
+                            <img class="icone-menu-gauche" src="../assets/icones/power.svg" alt="Icone déconnexion">
+                            <span class="d-none d-lg-inline">Se déconnecter</span>
+                        </a>
+                    {% endif %}
+                    </aside>
+                    <!-- FIN MENU GAUCHE -->
+
+                    <!-- SECTION CENTRALE -->
+                    

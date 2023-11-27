@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+<main class="body-connexion">
+    <section id="zone-centrale">
+            <div class="container filet-fin">
+                <div class="row ">
+                    <div class="col-12 col-md-3"></div><!-- vide -->
+
+                    <div class="col-12 col-md-6 espace">
+                        <h1 class="text-center taille-connexion">Connexion</h1>
+
+                        <div class="d-flex justify-content-between espace">
+
+                            <div class="taille-titre titre-color filet">
+                                <!-- <a href="connexion.html"></a> -->
+                                Je m'identifie
+                                <!-- </a> -->
+                            </div>
+						
+                            <div class="taille-titre titre-color">
+                                <a class="identification" href="" id="btn-new-connection">Je crée un compte</a>
+                            </div>
+							 
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-md-3"></div><!-- vide -->
+
+
+                </div>
+            </div>
+
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-12 col-md-3"></div><!-- vide -->
+					
+					<form class="col-12 col-md-6 espace" method="post">
+		{% if error %}
+			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+		{% endif %}
+                        <div class="size-email">
+							<input type="email"  name="email" id="inputEmail" class="input-infos-persos form-control" autocomplete="email" placeholder="E-mail*" required autofocus>
+                        </div>
+                        <div class="size-email">
+							<input type="password" name="password" id="inputPassword" class="input-infos-persos form-control" autocomplete="current-password" placeholder="Mot de passe*" required>
+                        </div>
+						<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                        <div class="validation bouton-retour">
+                            <div class=" justify-content-between">
+                                <div>
+                                    <div class="d-flex justify-content-between bouton-retour form-check">
+                                        <div>
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Se souvenir de moi
+                                            </label>
+                                        </div>
+                                        <a class="bouton-retour" href="">MOT DE PASSE OUBLIÉ ?</a>
+                                    </div>
+                                    <div class="text-end">
+										<button class="cta bouton-inscrire" type="submit">
+                                            <img src="/assets/icones/select.svg" alt="select">
+                                            Se connecter
+                                        </button>
+                                        <p class="mt-2">
+                                            *champs obligatoires
+                                        </p>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="espace mentions">
+                            Le responsable de traitement est UGC CINÉ CITÉ – SAS au capital de 12.325.016 euros – 24
+                            avenue
+                            Charles de Gaulle – 92200 Neuilly-sur-Seine – RCS DE NANTERRE 347.806.002. Les
+                            informations
+                            seront utilisées par les services internes d'UGC CINÉ CITÉ et les sociétés en lien avec
+                            UGC
+                            CINÉ
+                            CITÉ pour la réalisation de la prestation et seront exclusivement destinées à
+                            l'identification
+                            de l’utilisateur, à la gestion de son espace en ligne, au traitement complet de ses
+                            réservations
+                            et/ou ses achats sur le site ugc.fr, la version mobile ou sur l’application UGC DIRECT,
+                            à
+                            des
+                            fins statistiques, et plus généralement à la gestion de la relation client. Les données
+                            marquées
+                            d'un astérisque, nécessaires aux traitements précédemment énoncés, sont obligatoires.
+                            Toutes
+                            les
+                            autres informations sont facultatives, en cas de non-renseignement, UGC CINÉ CITÉ ne
+                            pourra
+                            traiter la demande du client.
+                            Les données personnelles sont conservées trois ans à l’issue de la suppression du compte
+                            ou
+                            suite à une inactivité ininterrompue sur le compte de trois ans. L’utilisateur dispose
+                            de
+                            l’ensemble des droits prévus par la loi n° 78-17 du 6 janvier 1978 "Informatique et
+                            Libertés",
+                            et notamment d'un droit d'accès, de rectification, de suppression, d'opposition, de
+                            limitation,
+                            de portabilité des données le concernant, ainsi que de la possibilité de fournir des
+                            directives
+                            quant au sort des données après le décès. L’utilisateur peut, à tout moment, exercer son
+                            droit
+                            en adressant sa demande par courrier à UGC CINÉ CITÉ, SERVICE CLIENTÈLE, 24 avenue
+                            Charles
+                            de
+                            Gaulle, 92 522 NEUILLY-SUR-SEINE CEDEX ou via la rubrique « Besoin d'aide ? » du site
+                            www.ugc.fr.
+                        </div>
+                    </form>
+
+
+                    <div class="col-12 col-md-3"></div><!-- vide -->
+
+
+                </div>
+            </div>
+    </section>
+</main>
+{% endblock %}

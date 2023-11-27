@@ -1,0 +1,154 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<style>
+/* CSS PRÉFÉRENCES FILM GENRE*/
+
+ .genre-tableau {
+    background-color: transparent;
+    color: #FFFCFC;
+    border: 1px solid #40B3D1;
+    border-radius: 10px; 
+}
+
+  .table{
+    flex-basis: 50%;
+}
+
+ #genres .option {
+    background-image: url("../icones/plus-s.svg");
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+ .option {
+    margin: 20px;
+}
+
+ #genres {
+    width: 100%;
+    padding-right: 100px;
+}
+
+ .genre-tableau::-webkit-scrollbar {
+    width: 10px;
+}
+
+  .genre-tableau::-webkit-scrollbar-thumb {
+    background-color: #00558E;
+    border-radius: 5px;
+}
+
+.bouton-modale {
+    display: flex;
+    align-items: center;
+    padding: 6px 30px;
+    justify-content: center;
+    border: 0;
+    border-radius: 10px;
+    font-size: 0.94rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.75px;
+    width: auto;
+}
+
+.bouton-modale span {
+    padding-top: 5px;
+    margin-right: 10px;
+}
+
+
+</style>
+
+<main>
+        <section id="zone-centrale">
+            <div class="container">
+                <div class="row align-items-stretch">
+{{include ("shared/_body.html.twig")}}
+
+
+<article class="col-10 col-md-10 top-article">
+<div class="zone-centrale">
+<form action="" method="POST" id="modal-form">
+    <input type="hidden" name="form-name" id="form-name" value="{{formName}}">
+
+    <div class="modal-body">
+   
+
+    <div class="d-flex justify-content-between picto-haut">
+            <div >
+                <a href="{{path('app_my_account_show')}}"><img src="/assets/icones/fleche-gauche.svg" alt="Icône Retour"></a>
+            </div>
+             <div class="croix">
+                <a href="{{path('app_my_account_show')}}"><img src="/assets/icones/cross.svg" alt="Croix blanche"></a>
+            </div>
+        </div>
+        <form class="row">
+            
+            <div class="bandeau-blanc col-12">
+                <h1 class="text-center">Mes préférences de films</h1>
+            </div>
+            <div class="col-12">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="icone-titre col-12">
+                    <img class="moncompte" src="/assets/icones/bobine-s.svg" alt="Compte">
+                    <span class="compte" href="#">Sélectionnez vos genres de films : </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 d-flex">
+                    <div class="table">
+                        <select id="genres" name="genres[]" multiple size="8" class="genre-tableau">
+                            <option class="option" value="Action">Action</option>
+                            <option class="option" value="Aventure">Aventure</option>
+                            <option class="option" value="Animation">Animation</option>
+                            <option class="option" value="Comédie">Comédie</option>
+                            <option class="option" value="Crime">Policier</option>
+                            <option class="option" value="Documentaire">Documentaire</option>                            
+                            <option class="option" value="Thriller">Thriller</option>
+                            <option class="option" value="Fantastique">Fantastique</option>
+                            <option class="option" value="Science-fiction">Science-Fiction</option>
+                            <option class="option" value="Drame">Drame</option>
+                            <option class="option" value="Histoire">Histoire</option>
+                            <option class="option" value="Musique">Musique</option>
+                            <option class="option" value="Horreur">Horreur</option>
+                            <option class="option" value="Romance">Romance</option>
+                            <option class="option" value="Guerre">Guerre</option>
+                            <option class="option" value="Western">Western</option>
+                            <option class="option" value="Familial">Familial</option>
+                        </select>
+                    </div>
+                    <div class="table">                  
+                       
+                    </div>
+                </div>
+
+            </div>
+            <div class="row espace-fin-genre">
+                <div class="col-6">
+                </div>
+                <div class="col-md-2 suivant">
+                    <button type="submit" id="submit" class="secondaire bouton-modale">
+				    <span>Suivant</span><img src="/assets/icones/arrow-s.svg" alt="Flèche droite bleue">
+				    </button> 
+                </div>
+
+            </div>
+        </form>
+    </div>
+</form>
+</div>
+</article>
+ <!-- FIN ZONE CENTRALE -->
+                 </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+{% endblock %}

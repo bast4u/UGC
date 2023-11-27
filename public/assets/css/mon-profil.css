@@ -1,0 +1,53 @@
+/* CSS MON PROFIL */
+
+
+.encadre-profil {
+    border: 1px solid #40B3D1;
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin:10px;
+}
+
+.position {
+    position: relative;
+}
+
+.encadre-icone{
+    width: 45px;
+}
+
+.encadre-icone-cloche{
+    width: 35px;
+}
+
+.encadre-icone-widget{
+    width: 35px;
+}
+
+.encadre-icone-film{
+    width: 40px;
+}
+
+.encadre-profil:hover {
+    background:radial-gradient(54.09% 25.00% at 50.00% 100.00%, #00558E 0%, #010A3D 99.56%);
+}
+
+.toggle{
+    position: absolute;
+    left: 79.5%;
+    z-index: 100;
+    margin-top: -30px;
+}
+
+.form-check-input:checked{
+    background-color:#40B3D1;
+    border:#40B3D1 1px solid;
+}
+
+.form-check-input:disabled{
+    background-color:transparent;
+    border:#40B3D1 1px solid;
+    
+}
+

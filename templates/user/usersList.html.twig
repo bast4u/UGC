@@ -1,0 +1,37 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<a href="{{path("app_user_new")}}">Nouvel utilisateur</a>
+
+
+<table class="table">
+    {% for user in users %}
+        <tr>
+ 
+            <td>
+                    {{ user.firstname}}
+            </td>
+          <td>
+ {{ user.postalCode}}
+  </td>
+ 
+ {# afficher date  #}
+  <td>
+    {{ user.dateOfBirth|date('d-m-Y') }} 
+ </td>
+  <td>
+      <a href="{{ path('app_user_edit', { 'id' : user.id }) }}">Edit</a>
+  </td>
+   <td>
+      <a href="{{ path('app_user_show', { 'id' : user.id }) }}">Show</a>
+  </td>
+ </tr>
+
+    {% endfor %}
+    </table>
+
+
+{% endblock %}

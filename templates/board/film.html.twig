@@ -1,0 +1,225 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes films UGC{% endblock %}
+
+{% block body %}
+
+	<main>
+		<section id="zone-centrale">
+			<div class="container">
+				<div class="row align-items-stretch">
+
+					{{include ("shared/_body.html.twig")}}
+
+                    <article class="col-10 col-md-10 top-article"> <!-- zone principale droite -->
+                        <div
+							class="zone-centrale">
+							<!-- container de toutes les listes -->
+							<div
+								class="bloc-liste">
+								<!-- première liste de films par genre -->
+								<div class="d-flex-titre">
+									<img class="icone-titre-rubrique" src="/assets/icones/bobine-m.svg" alt="Icone bobine film">
+									<h2 class="icone rubrique ">Mes films par genre</h2>
+								</div>
+
+								{# films by genres #}
+								
+								<div class="d-flex-slider">
+									{% for movie in recommendedMoviesByGenres | slice(0,4) %}
+										<!-- slider film -->
+										<article class="card-border">
+											<div
+												class="card">
+												{# <div class="tag">Aventure</div> #}
+												<div class="tag">{{movie.tmdbGenre}}</div>
+												<a href="">
+													<img class="affiche" src="{{movie.tmdbPoster}}" alt="{{movie.name}}" style="width: 206px; height: 309px;">
+												</a>
+
+												<div class="avis"> 
+												{% for img in imgStar[movie.id] %}
+													<img class="star" src="{{ img }}" alt="star">
+												{% endfor %}
+												</div>
+
+												<h3>{{movie.name | slice(0, 20) }}</h3>
+																		{#  #}
+												{# Afin de pouvoir afficher un synopsis qui rentre dans la card #}
+																		{#  #}
+												{# transformer la string en tableau de mots #}
+												{% set words = movie.tmdbOverview | split(' ') %}
+												{# créer une limite de mots pour que cela rentre dans la card #}
+												{% set limitedWords = words | slice(0, 10) %}
+												{# initialiser le dernier mot (car si c'est une virgule par ex cela rend : ',...') #}
+												{% set lastWord = limitedWords | last %}
+												{# Si le dernier mot du synopsis coupé est un caractère comme décris en dessous #}
+												{% if lastWord matches '/[,.;!?]$/' %}
+												{# Supprimer  #}
+													{% set lastWordWithoutPunctuation = lastWord | slice(0, -1) %}
+													{% set limitedWords = limitedWords | slice(0, -1) | merge([lastWordWithoutPunctuation]) %}
+												{% endif %}
+												{# recréer le synopsis et rajouter '...' à la fin #}
+												<p>{{ limitedWords | join(' ') ~ '...' }}</p>
+
+												<a href="#" class="bouton cta">
+													<img class="icone-cta" src="/assets/icones/ticket-xs.svg" alt="bouton réserver">
+													<span>Réserver</span>
+												</a>
+											</div>
+										</article>
+									{% endfor %}
+									{% if not recommendedMoviesByGenres %}
+									<h2>Veuillez renseigner vos préférences <a href="{{path('app_my_account_edit_category')}}">Ici</a></h2>
+									{% endif %}
+								</div>
+
+							</div>
+
+							{# fin film by genres #}
+									<hr>
+
+							{# début film by actors #}
+
+							<div
+								class="bloc-liste">
+								<!-- seconde liste de films par acteurs -->
+								<div class="d-flex-titre">
+									<img class="icone-titre-rubrique" src="/assets/icones/bobine-m.svg" alt="Icone bobine film">
+									<h2 class="rubrique ">Mes films avec acteurs préférés</h2>
+								</div>
+								<div
+									class="d-flex-slider">								
+									 {% for movie in recommendedMoviesByActors %}
+									<!-- slider film -->
+									<article class="card-border">
+										<div
+                                            class="card">
+                                            {# <div class="tag">Aventure</div> #}
+                                            {% for actor in movie.tmdbActor %}
+                                                {% for actors in app.user.actors %}
+                                                    {% if actor == actors %}
+                                                <div class="tag">{{actor}}</div>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endfor %}
+                                            <a href="">
+												<img class="affiche" src="{{movie.tmdbPoster}}" alt="{{movie.name}}" style="width: 206px; height: 309px;">
+											</a>
+
+											<div class="avis"> 
+											{% for img in imgStar[movie.id] %}
+                        						<img class="star" src="{{ img }}" alt="star">
+                    						{% endfor %}
+											</div>
+
+											<h3>{{movie.name | slice(0, 20) }}</h3>
+																	{#  #}
+											{# Afin de pouvoir afficher un synopsis qui rentre dans la card #}
+																	{#  #}
+											{# transformer la string en tableau de mots #}
+											{% set words = movie.tmdbOverview | split(' ') %}
+											{# créer une limite de mots pour que cela rentre dans la card #}
+											{% set limitedWords = words | slice(0, 10) %}
+											{# initialiser le dernier mot (car si c'est une virgule par ex cela rend : ',...') #}
+											{% set lastWord = limitedWords | last %}
+											{# Si le dernier mot du synopsis coupé est un caractère comme décris en dessous #}
+											{% if lastWord matches '/[,.;!?]$/' %}
+											{# Supprimer  #}
+												{% set lastWordWithoutPunctuation = lastWord | slice(0, -1) %}
+												{% set limitedWords = limitedWords | slice(0, -1) | merge([lastWordWithoutPunctuation]) %}
+											{% endif %}
+											{# recréer le synopsis et rajouter '...' à la fin #}
+											<p>{{ limitedWords | join(' ') ~ '...' }}</p>
+
+											<a href="#" class="bouton cta">
+												<img class="icone-cta" src="/assets/icones/ticket-xs.svg" alt="bouton réserver">
+												<span>Réserver</span>
+											</a>
+										</div>
+									</article>
+									{% endfor %}
+										{% if not recommendedMoviesByActors %}
+										<h2>Veuillez renseigner vos préférences <a href="{{path('app_my_account_edit_category')}}">Ici</a></h2>
+										{% endif %}
+								</div>
+									
+								{# Fin film by actors #}
+								
+
+							</div>
+								<hr>
+
+								{# début film by réalisateurs #}
+							<div
+								class="bloc-liste">
+								<!-- troisième liste de films par réalisateurs -->
+								<div class="d-flex-titre">
+									<img class="icone-titre-rubrique" src="/assets/icones/bobine-m.svg" alt="Icone bobine film">
+									<h2 class="icone rubrique ">Mes films avec réalisateurs préférés</h2>
+								</div>
+								<div
+									class="d-flex-slider">
+									{% for movie in recommendedMoviesByDirectors %}
+									<!-- slider film -->
+									<article class="card-border">
+										<div
+											class="card">
+											{# <div class="tag">Aventure</div> #}
+											<div class="tag">{{movie.tmdbDirector}}</div>
+											<a href="">
+												<img class="affiche" src="{{movie.tmdbPoster}}" alt="{{movie.name}}" style="width: 206px; height: 309px;">
+											</a>
+
+											<div class="avis"> 
+											{% for img in imgStar[movie.id] %}
+                        						<img class="star" src="{{ img }}" alt="star">
+                    						{% endfor %}
+											</div>
+
+											<h3>{{movie.name | slice(0, 20) }}</h3>
+																	{#  #}
+											{# Afin de pouvoir afficher un synopsis qui rentre dans la card #}
+																	{#  #}
+											{# transformer la string en tableau de mots #}
+											{% set words = movie.tmdbOverview | split(' ') %}
+											{# créer une limite de mots pour que cela rentre dans la card #}
+											{% set limitedWords = words | slice(0, 10) %}
+											{# initialiser le dernier mot (car si c'est une virgule par ex cela rend : ',...') #}
+											{% set lastWord = limitedWords | last %}
+											{# Si le dernier mot du synopsis coupé est un caractère comme décris en dessous #}
+											{% if lastWord matches '/[,.;!?]$/' %}
+											{# Supprimer  #}
+												{% set lastWordWithoutPunctuation = lastWord | slice(0, -1) %}
+												{% set limitedWords = limitedWords | slice(0, -1) | merge([lastWordWithoutPunctuation]) %}
+											{% endif %}
+											{# recréer le synopsis et rajouter '...' à la fin #}
+											<p>{{ limitedWords | join(' ') ~ '...' }}</p>
+
+											<a href="#" class="bouton cta">
+												<img class="icone-cta" src="/assets/icones/ticket-xs.svg" alt="bouton réserver">
+												<span>Réserver</span>
+											</a>
+										</div>
+									</article>
+									{% endfor %}
+										{% if not recommendedMoviesByDirectors %}
+										<h2>Veuillez renseigner vos préférences <a href="{{path('app_my_account_edit_category')}}">Ici</a></h2>
+										{% endif %}
+								</div>
+									
+								
+							</div>
+
+
+						</div>
+
+
+					</article>
+					<!-- FIN ZONE CENTRALE -->
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+{% endblock %}

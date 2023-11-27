@@ -1,0 +1,87 @@
+<form action="" method="POST" id="modal-form">
+    <input type="hidden" name="form-name" id="form-name" value="{{formName}}">
+    <input type="hidden" name="step" id="step" value="{{step}}">
+    <input type="hidden" name="previous-step" id="previous-step" value="{{previousStep}}">
+
+ <div class="modal-body">
+ {% if message %}
+    <div class="alert alert-danger" role="alert">
+        {{message|raw}}
+    </div>
+  {% endif %}  
+        <div class="d-flex picto-haut justify-content-end">
+                <div class="croix">
+                    <a href="#"><img src="assets/icones/cross.svg" alt="Croix blanche"></a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="text-center">Bonjour {{ firstname }} !</h2>
+                </div>
+                <div class="bandeau-blanc col-12">
+                    <h1 class="text-center">Nouveau sur "mon compte"</h1>
+                </div>
+                <div class="icone-titre col-12 row">
+                    <p class="text-regular ">
+                        Personnalisez votre compte personnel avec UGC !
+                    </p>
+                    <div class="espace-message">
+                    </div>
+                    <div class="row">
+                        <div class="icone-titre col-12">
+                            <img class="cine" src="assets/icones/cine-xs.svg" alt="Cine">
+                            <span class="compte" href="#"><span class="mot-bold">Ajoutez</span> vos cinémas
+                                préférés&nbsp;!</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="icone-titre col-12">
+                            <img class="bobine" src="assets/icones/bobine-s.svg" alt="Bobine">
+                            <span class="bobine" href="#"><span class="mot-bold">Consultez</span> rapidement les prochaines
+                                séances et le nombre de places
+                                restantes dans votre cinéma favori grâce au widget “Mon UGC”.</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="icone-titre col-12">
+                            <img class="abonnement" src="assets/icones/abonnement-s.svg" alt="Abonnement">
+                            <span class="abonnement" href="#"><span class="mot-bold">Définissez</span> vos préférences de
+                                films et visualisez-les en un coup
+                                d’oeil&nbsp;!
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="icone-titre col-12">
+                            <img class="cadeau" src="assets/icones/cadeau-s.svg" alt="Cadeau">
+                            <span class="cadeau" href="#"><span class="mot-bold">Découvrez</span> des offres promotionnelles
+                                personnalisées
+                            </span>
+                        </div>
+                    </div>
+                    <div class="espace-message">
+                    </div>
+                    <div class="text-regular">
+                        et bien entendu, consultez toujours toutes vos réservations !
+                    </div>
+                    <div class="row espace-fin">
+                        <div class="col-md-6">
+                        </div>
+                        <div class="col-md-2">
+                            
+                        </div>
+                        <div class="col-md-4">
+                        <div class="cta bouton-selectionne">
+                            <button class="btn-submit" type="submit" id="submit"></button>
+                            <img src="assets/icones/select.svg" alt="select">
+                            <span>Je suis intéressé.e</span>
+                        </div>    
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+ </div>
+</form>

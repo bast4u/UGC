@@ -1,0 +1,427 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %} 
+
+<style>
+  .espace {
+    margin-top: 30px;
+}
+  .espace-tag {
+    margin-top: 5px;
+}
+
+  .langue-form-check {
+    margin-top: 15px;
+}
+
+  .form-check-input {
+    margin-right: 15px;
+}
+
+  .input-recherche-acteur {
+    border: 1px solid #40B3D1;
+    background-color: transparent;
+    border-radius: 10px;
+    background-image: url(../icones/loupe-s-bleu-lumiere.svg);
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    width: 35%;
+    color: #40B3D1;
+    font-family: "uniform-regular";
+    font-size: 1.25rem;
+    padding: 8px 70px 8px 8px;
+    margin-top: 10px;
+}
+
+  .input-recherche-acteur:focus{
+    background-color: #fffcfc;
+    color: #010A3D;
+}
+
+  .input-recherche-acteur::placeholder {
+    color: #40B3D1;
+}
+
+  .form-check-input {
+    background-color: transparent;
+    border-color: #FFFCFC
+}
+
+  .form-check-input:checked {
+    background-color: transparent;
+    border-color: #FFFCFC;
+
+}
+
+.suppression-tag-modale {
+    background: transparent;
+    color: #fffcfc;
+    border: 1px solid #40B3D1;
+    border-radius: 10px;
+    font-family: 'uniform-medium';
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.96px;
+    width: 80%;
+    padding: 8px 20px;
+    left: 15%;
+    top: -30px;
+    margin-top: 20px;
+    background-image: url('../icones/cross-xs-bleu-lumiere.svg');
+    background-position: center left 90%;
+    background-repeat: no-repeat;
+}
+
+.bouton-modale {
+    display: flex;
+    align-items: center;
+    padding: 6px 30px;
+    justify-content: center;
+    border: 0;
+    border-radius: 10px;
+    font-size: 0.94rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.75px;
+    width: auto;
+}
+
+.bouton-modale span {
+    padding-top: 5px;
+    margin-right: 10px;
+}
+
+</style>
+
+<main>
+        <section id="zone-centrale">
+            <div class="container">
+                <div class="row align-items-stretch">
+
+{{include ("shared/_body.html.twig")}}
+
+<article class="col-10 col-md-10 top-article">
+
+<div class="zone-centrale">
+<form action="" method="POST" id="modal-form">
+<input type="hidden" name="form-name" id="form-name" value="{{formName}}">
+
+    <div class="modal modal-body">    
+
+	<div class="d-flex justify-content-between picto-haut">
+            <div >
+                <a href="{{path('app_my_account_edit_category')}}"><img src="/assets/icones/fleche-gauche.svg" alt="Icône Retour"></a>
+            </div>
+             <div class="croix">
+                <a href="{{path('app_my_account_show')}}"><img src="/assets/icones/cross.svg" alt="Croix blanche"></a>
+            </div>
+        </div>
+        <form class="row">
+            
+            <div class="bandeau-blanc col-12">
+                <h1 class="text-center">Mes préférences de films</h1>
+            </div>
+            <div class="col-12">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="icone-titre col-12">
+                    <img class="moncompte" src="/assets/icones/bobine-s.svg" alt="Compte">
+                    <span class="compte" href="#">Renseignez vos personnalités préférées : acteurs ou réalisateurs
+                        (maximum 5) :</span>
+                </div>
+            </div>
+            <div class="col-12">
+				<div id="actors-container">
+					<label for="modal-choose-actor-cinema"></label>
+                    <input type="hidden" id="actorsTab" name="actors" value ="">
+					<input type="text" class="actor-input input-recherche-acteur" id="modal-choose-actor-cinema" placeholder="Saisissez le nom d’un acteur.ice">
+					<div class="suggestions-container"></div>
+				</div>
+            </div>
+            <div class="row" id="actor-tag">
+                <div class="col-12 col-md-3">                   
+                </div>
+                
+                <div class="espace-tag">
+                </div>
+                
+                <div class="espace">
+                </div>
+            </div>
+            <div class="col-12">
+                <div id="directors-container">
+                    <label for="modal-choose-director-cinema"></label>
+                     <input type="hidden" id="directorTab" name="directors" value ="">
+                    <input type="text" class="input-recherche-acteur" id="modal-choose-director-cinema" placeholder="Saisissez le nom d’un réalisateur.ice"></br>
+                    <div class="suggestions-container"></div>
+                </div>
+            </div>
+            <div class="row" id="director-tag">
+                <div class="col-12 col-md-3">
+                </div>
+              
+                <div class="espace-tag">
+                </div>
+               
+                <div class="espace">
+                </div>
+            </div>
+            <div class="espace">
+            </div>
+            <div class="col-md-8">
+                <div>Choisissez vos préférences de langue et sous-titre :</div>
+                <div class="langue-form-check">
+                    <input class="form-check-input radioInput" type="radio" name="language" value="VF" id="language" checked>
+                    <label class="form-check-label" for="language">
+                        Version Française (VF)
+                    </label>
+                </div>
+                <div class="langue-form-check">
+                    <input class="form-check-input radioInput" type="radio" name="language" value="VOSTR" id="language">
+                    <label class="form-check-label" for="language">
+                        Version Originale Sous-Titrée en Français (VOSTFR)
+                    </label>
+                </div>
+                <div class="langue-form-check">
+                    <input class="form-check-input radioInput" type="radio" name="language" value="Audiodescription" id="language">
+                    <label class="form-check-label" for="language">
+                        Audiodescription
+                    </label>
+                </div>
+            </div>
+            <div class="row espace-fin">
+                <div class="col-md-6">
+                </div>
+
+                <div class="col-md-2 suivant">
+					<button type="submit" id="submit" class="secondaire bouton-modale">
+					<span>Suivant</span>
+					<img src="/assets/icones/arrow-s.svg" alt="Flèche droite bleue">
+					</button> 
+                </div>
+            </div>
+            <div class="espace-fin"> </div>
+        </form>
+</form>
+
+                        </div>
+
+
+    </article>
+                    <!-- FIN ZONE CENTRALE -->
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script>
+/**
+     * Initialisation de l'autocompletion sur le choix d'acteur
+     */
+    function initActorAutocompletion() { 
+
+        // ajout de l'event "keyup" sur l'input des acteurs
+        document.getElementById('modal-choose-actor-cinema').addEventListener('keyup', (e) => { 
+
+            // interrogation de notre API maison pour récupérer la liste des acteurs
+            fetch('/api/actors/' + e.target.value + '/5').then(function (response) {
+                return response.text();
+            })
+            .then(function (json) {
+                const datas = JSON.parse(json);
+                console.log(datas);
+                
+                const destinationEl = document.querySelector('#actors-container .suggestions-container');
+                destinationEl.innerHTML = "";
+                console.log(destinationEl);
+                datas.forEach(suggestion => {
+
+                    let box = document.createElement('checkbox');
+                    box.innerHTML = `<input type="checkbox" class="checkboxActor form-check-input" id ="actors" value="${suggestion}">`
+
+        
+                    let p = document.createElement('span');
+                    p.innerHTML = '' + suggestion;
+                    
+                    let div = document.createElement('div');
+                    div.appendChild(box);
+                    div.appendChild(p);
+        
+                    destinationEl.appendChild(div);
+
+                    
+                });
+                scanCheckBoxActor();
+            })
+        })
+    }
+
+    let tabActor = "";
+    /**
+     * Enregistre en base de données les acteurs sélectionnés
+     */
+    function scanCheckBoxActor(){
+        let checkboxActors = document.querySelectorAll('.checkboxActor');
+        checkboxActors.forEach(element => {
+            element.addEventListener('click', (e) => {
+                if(tabActor != ""){
+                    tabActor += "||";
+                }
+                tabActor += e.currentTarget.value;
+                document.getElementById('actorsTab').value = tabActor;
+
+                //permet l'affichage de l'acteur sélectionné dans une 'card'
+                let content = document.getElementById('actor-tag').innerHTML;
+                content += `<div class="col-12 col-md-3"><button class="suppression-tag-modale">`+e.currentTarget.value+`</button></div>`;
+
+                document.getElementById('actor-tag').innerHTML = content;
+
+            })
+        });
+    }
+initActorAutocompletion();
+
+
+/**
+     * Initialisation de l'autocompletion sur le choix du réalisateur
+     */
+    function initDirectorAutocompletion() { 
+
+        // ajout de l'event "keyup" sur l'input des acteurs
+        document.getElementById('modal-choose-director-cinema').addEventListener('keyup', (e) => { 
+
+            // interrogation de notre API maison pour récupérer la liste des acteurs
+            fetch('/api/actors/' + e.target.value + '/5').then(function (response) {
+                return response.text();
+            })
+            .then(function (json) {
+                const datas = JSON.parse(json);
+                console.log(datas);
+                
+                const destinationEl = document.querySelector('#directors-container .suggestions-container');
+                destinationEl.innerHTML = "";
+                console.log(destinationEl);
+                datas.forEach(suggestion => {
+
+                    let box = document.createElement('checkbox');
+                    box.innerHTML = `<input type="checkbox" class="checkboxDirector form-check-input" id ="directors" value="${suggestion}">`
+        
+                    let p = document.createElement('span');
+                    p.innerHTML = suggestion;
+                    
+                    let div = document.createElement('div');
+                    div.appendChild(box);
+                    div.appendChild(p);
+        
+                    destinationEl.appendChild(div);
+                });
+                 scanCheckBoxDirector();
+                
+            })
+        })
+    }
+
+     let tabDirector = "";
+
+     function reinitInputActor(){
+        let listActor = document.querySelector('#actors-container .suggestions-container');
+        let listDirector = document.querySelector('#directors-container .suggestions-container');
+        document.getElementById('modal-choose-actor-cinema').addEventListener('focus', () => {
+            listActor.innerHTML = '';
+            listDirector.innerHTML = '';
+        })
+        document.getElementById('modal-choose-director-cinema').addEventListener('focus', () => {
+            listActor.innerHTML = '';
+            listDirector.innerHTML = '';
+        })
+        document.querySelectorAll('.radioInput').forEach((element) => {
+            element.addEventListener('change', () => {
+                listActor.innerHTML = '';
+                listDirector.innerHTML = '';
+            })
+        })
+        
+     }
+
+    function scanCheckBoxDirector(){
+        let checkboxDirectors = document.querySelectorAll('.checkboxDirector');
+        checkboxDirectors.forEach(element => {
+            element.addEventListener('click', (e) => {
+                if(tabDirector != ""){
+                    tabDirector += "||";
+                    
+                }
+                tabDirector += e.currentTarget.value;
+                document.getElementById('directorTab').value = tabDirector;
+
+                let content = document.getElementById('director-tag').innerHTML;
+                content += `<div class="col-12 col-md-3"><button class="suppression-tag-modale">`+e.currentTarget.value+`</button></div>`;
+
+                document.getElementById('director-tag').innerHTML = content;
+
+            })
+        });
+    }
+
+    initDirectorAutocompletion();
+
+        /**
+     * Ajoute un evenement click sur le bouton à l'intérieur d'un formulaire
+     */
+    function addEventOnButton(){
+        const button = document.querySelector('#modal-form button#submit');
+
+        if(!button) return;
+
+        button.addEventListener('click', (e) => {
+                // annule le comportement normal du lien
+                e.preventDefault();
+
+                // récupère la destination du fetch
+                const destination = document.getElementById('step').value;
+                const formData = new FormData(document.getElementById("modal-form"))
+                console.log(formData);
+                fetch(destination, {
+                    body: formData,
+                    method: "post"
+                })
+                .then(function(response) {
+                    return response.text();
+                })
+                .then(function(html) {
+
+                    // charge le nouveau html dans la modal
+                    document.querySelector('#modal .modal-content').innerHTML = html;
+                    
+                    // vérifie si il faut active un js spécial en fonction de la modale sur laquelle on se trouve
+                    if (document.getElementById('modal-choose-location-cinema')) {
+                        initCinemaAutocompletion();
+                    }
+
+                    if (document.getElementById('modal-choose-actor-cinema')) {
+                        initActorAutocompletion();
+                    }
+
+                    if (document.getElementById('modal-choose-director-cinema')) {
+                        initDirectorAutocompletion();
+                        reinitInputActor();
+                    }
+                   
+                    if (document.getElementById('modal-final')) {
+                        initFinalModal();
+                    }                   
+                    
+                    // initialise le bouton submit (si il y'en a un)
+                    addEventOnButton();
+                });
+        });
+    }
+</script>
+
+{% endblock %}
+

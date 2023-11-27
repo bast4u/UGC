@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block body %} 
+<main>
+        <section id="zone-centrale">
+            <div class="container">
+                <div class="row align-items-stretch">
+
+{{include ("shared/_body.html.twig")}}
+                    
+
+                        
+                        <article class="col-10 col-md-10 top-article">
+
+                        <div class="zone-centrale">
+                            <div class="d-flex-titre">
+                                <img class="icone-titre-rubrique" src="/assets/icones/roue-s.svg" alt="Icone bobine film">
+                                <h2 class="icone rubrique">Mon profil Admin</h2>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-6 text-center">
+                                    <div class="encadre-profil">
+                                    <a class="modif" href="{{path('app_movies_update')}}">
+                                        <img class="encadre-icone" src="/assets/icones/roue-s.svg" alt="Roue">
+                                        <h2 class="icone rubrique">M.A.J Films</h2>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 text-center">
+                                    <div class="encadre-profil">
+                                    <a class="modif" href="{{path('app_movies_empty')}}">
+                                        <img class="encadre-icone-film" src="/assets/icones/cine-xs.svg" alt="Ciné">
+                                        <h2 class="icone rubrique ">Supp Films</h2>
+                                         </a>
+                                    </div>
+                                </div>
+                                
+                                </div>
+                                
+                                
+                            </div>
+
+                        </div>
+
+
+                    </article>
+
+                    
+                    <!-- FIN ZONE CENTRALE -->
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+{% endblock %}
+

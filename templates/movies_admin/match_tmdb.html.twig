@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MovieUpdateController!{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Correspondance avec TMDB</h1>
+            {# methode get pour le moment #}
+            <form action="/movies/save_matches" method="get">
+            <input type="hidden" name="form-name" value="matchTMDBForm">
+                <table class="table table-sm table_hover table-stripped table-dark">
+                    <thead>
+                        <tr>
+                            <th>
+                            Version&nbsp;Allociné
+                            </th>
+                            <th>
+                            Version&nbsp;TMDB
+                            </th>
+                            <th>
+                            Confirmer&nbsp;?
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for movie in movies %}
+                        <tr>
+                            <td>
+                                <h5>{{movie['name']}}</h5>
+                                <p><strong>{{movie['date_fr']}}</strong></p>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <img src="{{movie['TMDB_poster']}}" alt="{{movie['TMDB_name']}}" class="img-fluid">
+                                    </div>
+                                    <div class="col-8">
+                                        <h5>{{movie['TMDB_name']}}</h5>
+                                        <h6>{{movie['TMDB_original_name']}}</h6>
+                                        <p><strong>{{movie['TMDB_release_date']}}</strong></p>
+                                        <p>{{movie['TMDB_overview']}}</p>
+                                    </div>
+                                </div>
+
+                            </td>
+                            <td>
+                            <input type="checkbox" name="matches" id="" value="match_{{movie['id']}}_{{movie['TMDB_id']}}"></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary">Valider</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

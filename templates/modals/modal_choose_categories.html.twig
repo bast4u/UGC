@@ -1,0 +1,84 @@
+<form action="" method="POST" id="modal-form">
+    <input type="hidden" name="form-name" id="form-name" value="{{formName}}">
+    <input type="hidden" name="step" id="step" value="{{step}}">
+    <input type="hidden" name="previous-step" id="previous-step" value="{{previousStep}}">
+
+    <div class="modal-body">
+        {% if message %}
+            <div class="alert alert-danger" role="alert">
+                {{message|raw}}
+            </div>
+        {% endif %}     
+
+    <div class="d-flex justify-content-between picto-haut">
+            <div >
+                <a href="modale-message.html"><img src="assets/icones/fleche-gauche.svg" alt="Icône Retour"></a>
+            </div>
+            <div class="croix">
+                <a href="#"><img src="assets/icones/cross.svg" alt="Croix blanche"></a>
+            </div>
+        </div>
+        <form class="row">
+            
+            <div class="bandeau-blanc col-12">
+                <h1 class="text-center">Mes préférences de films</h1>
+            </div>
+            <div class="col-12">
+                <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100" style="height: 10px">
+                    <div class="progress-bar" style="width: 60%"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="icone-titre col-12">
+                    <img class="moncompte" src="assets/icones/bobine-s.svg" alt="Compte">
+                    <span class="compte" href="#">Sélectionnez vos genres de films : </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 d-flex">
+                    <div class="table">
+                        <select id="genres" name="genres[]" multiple size="8" class="genre-tableau">
+                            <option class="option" value="Action">Action</option>
+                            <option class="option" value="Aventure">Aventure</option>
+                            <option class="option" value="Animation">Animation</option>
+                            <option class="option" value="Comédie">Comédie</option>
+                            <option class="option" value="Crime">Policier</option>
+                            <option class="option" value="Documentaire">Documentaire</option>                            
+                            <option class="option" value="Thriller">Thriller</option>
+                            <option class="option" value="Fantastique">Fantastique</option>
+                            <option class="option" value="Science-fiction">Science-Fiction</option>
+                            <option class="option" value="Drame">Drame</option>
+                            <option class="option" value="Histoire">Histoire</option>
+                            <option class="option" value="Musique">Musique</option>
+                            <option class="option" value="Horreur">Horreur</option>
+                            <option class="option" value="Romance">Romance</option>
+                            <option class="option" value="Guerre">Guerre</option>
+                            <option class="option" value="Western">Western</option>
+                            <option class="option" value="Familial">Familial</option>
+                        </select>
+                    </div>
+                    <div class="table">                  
+                       
+                    </div>
+                </div>
+
+            </div>
+            <div class="row espace-fin-genre">
+                <div class="col-6">
+                </div>
+                <div class="col-md-2">
+                    <a class="bouton-retour" href="modale-emplacement.html">
+                        <img src="./assets/icones/fleche-gauche-xs.svg" alt="Flèche gauche">Retour
+                    </a>
+                </div>
+                <div class="col-md-2 suivant">
+                    <button type="submit" id="submit" class="secondaire bouton-modale">
+				    <span>Suivant</span><img src="./assets/icones/arrow-s.svg" alt="Flèche droite bleue">
+				    </button> 
+                </div>
+
+            </div>
+        </form>
+    </div>
+</form>

@@ -1,0 +1,151 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Widget - Home - UGC{% endblock %}
+
+{% block body %}
+<main>
+        <section id="zone-centrale">
+            <div class="container">
+                <div class="row align-items-stretch">
+
+                    <article class="col-10 col-md-10 top-article"> <!-- zone principale droite -->
+
+                        <div class="row central">
+
+                    <div id="widget"> <!--container flex columns-->
+                        <div class="d-flex infos">
+                            <div> <!-- item 1 -->
+                                <p class="prenom bleu">Bonjour {{app.user.firstname}},</p>
+                                {% for location in app.user.location %}
+                                <h1>Vos prochaines séances - <span class="normal">{{location}}</span></h1>
+                                {% endfor %}       
+                            </div>
+                            <div class="zone-points d-flex"> <!-- items 2 -->
+                                <div class="picto-points">
+                                    <img src="/assets/icones/cadeau-s.svg" alt="icone cadeau">
+                                    <p>50 pts</p>
+                                </div>
+                                <p class="date-max">à utiliser avant<br>le 31/12/2023</p>
+                            </div>
+                        </div>
+                        <div class="d-flex-slider"> <!-- slider séances -->
+
+                          {% for movie in recommendedMoviesByActors %}
+                          {% if movie in recommendedMoviesByCinema %}
+
+                            <article class="card-border">
+                                <div class="card">
+                                  {% for actor in movie.tmdbActor %}
+                                                {% for actors in app.user.actors %}
+                                                    {% if actor == actors %}
+                                                        <div class="tag">{{actor}}</div>
+                                                    {% endif %}
+                                                {% endfor %}
+                                    {% endfor %}
+
+                                     <a href="">
+                                        <img class="affiche" src="{{movie.tmdbPoster}}" alt="{{movie.name}}" style="width: 206px; height: 309px;">
+                                    </a>
+                                    <div class="avis">
+                                        {% for img in imgStar[movie.id] %}
+                        						<img class="star" src="{{ img }}" alt="star">
+                    				{% endfor %}
+                                    </div>
+                                    <h3>{{movie.name | slice(0, 20) }}</h3>
+                                    <div class="seance d-flex">
+                                        <p>Prochaine séance</p>
+                                        <p class="bleu">16h30</p>
+                                    </div>
+                                    <div class="d-flex"> <!-- flexbox -->
+                                        <div class="data">
+                                            <p class="titre">Votre cinéma</p>
+                                            <div class="d-flex">
+                                                <img src="/assets/icones/cine-xxs.svg" alt="icone cinema">
+                                                <p class="places"><span class="bleu nb">150</span> places restantes</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="data">
+                                            <p class="titre">Votre zone préférée</p>
+                                            <div class="d-flex">
+                                                <img src="/assets/icones/fauteuil-xs.svg" alt="icone fauteuil">
+                                                <p class="places"><span class="bleu nb">15</span> places restantes</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <a href="#" class="bouton cta">
+                                        <img class="icone-cta" src="/assets/icones/ticket-xs.svg" alt="bouton réserver">
+                                        <span>Réserver</span>
+                                    </a>
+                                </div>
+                            </article>
+                            
+                        {% endif %}
+                    {% endfor %}
+
+                    {% for movie in recommendedMoviesByGenres %}
+                        {% if movie in recommendedMoviesByCinema %}
+
+                            <article class="card-border">
+                                <div class="card">
+                                      <div class="tag">{{movie.tmdbGenre}}</div>
+                                        <a href="">
+                                            <img class="affiche" src="{{movie.tmdbPoster}}" alt="{{movie.name}}" style="width: 206px; height: 309px;">
+                                        </a>
+                                    <div class="avis">
+                                        {% for img in imgStar[movie.id] %}
+                        						<img class="star" src="{{ img }}" alt="star">
+                    				{% endfor %}
+                                    </div>
+                                    <h3>{{movie.name | slice(0, 20) }}</h3>
+                                    <div class="seance d-flex">
+                                        <p>Prochaine séance</p>
+                                        <p class="bleu">17h10</p>
+                                    </div>
+                                    <div class="d-flex"> <!-- flexbox -->
+                                        <div class="data">
+                                            <p class="titre">Votre cinéma</p>
+                                            <div class="d-flex">
+                                                <img src="/assets/icones/cine-xxs.svg" alt="icone cinema">
+                                                <p class="places"><span class="bleu nb">130</span> places restantes</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="data">
+                                            <p class="titre">Votre zone préférée</p>
+                                            <div class="d-flex">
+                                                <img src="/assets/icones/fauteuil-xs.svg" alt="icone fauteuil">
+                                                <p class="places"><span class="bleu nb">10</span> places restantes</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <a href="#" class="bouton cta">
+                                        <img class="icone-cta" src="/assets/icones/ticket-xs.svg" alt="bouton réserver">
+                                        <span>Réserver</span>
+                                    </a>
+
+                                </div>
+                            </article>
+                        {% endif %}
+                    {% endfor %}
+                        
+                        </div>
+                    </div>
+                </div>
+                    </article>
+                    <!-- FIN ZONE CENTRALE -->
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+	<footer id="top">
+<img src="/assets/images/screen-hp.jpg" alt="screen hompepage UGC" style="width: 100%;">
+
+	</footer>
+{% endblock %}
+
+

@@ -1,0 +1,117 @@
+<form action="" method="POST" id="modal-form">
+	<input type="hidden" name="form-name" id="form-name" value="{{formName}}">
+	<input type="hidden" name="step" id="step" value="{{step}}">
+	<input type="hidden" name="previous-step" id="previous-step" value="{{previousStep}}">
+
+	
+    <div class="modal-body">
+        {% if message %}
+            <div class="alert alert-danger" role="alert">
+                {{message|raw}}
+            </div>
+        {% endif %}     
+
+	<div class="d-flex justify-content-between picto-haut">
+            <div >
+                <a href="modale-message.html"><img src="assets/icones/fleche-gauche.svg" alt="Icône Retour"></a>
+            </div>
+            <div class="croix">
+                <a href="#"><img src="assets/icones/cross.svg" alt="Croix blanche"></a>
+            </div>
+        </div>
+        <form class="row">
+            
+            <div class="bandeau-blanc col-12">
+                <h1 class="text-center">Mes préférences de films</h1>
+            </div>
+            <div class="col-12">
+                <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100" style="height: 10px">
+                    <div class="progress-bar" style="width: 80%"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="icone-titre col-12">
+                    <img class="moncompte" src="assets/icones/bobine-s.svg" alt="Compte">
+                    <span class="compte" href="#">Renseignez vos personnalités préférées : acteurs ou réalisateurs
+                        (maximum 5) :</span>
+                </div>
+            </div>
+            <div class="col-12">
+				<div id="actors-container">
+					<label for="modal-choose-actor-cinema"></label>
+                    <input type="hidden" id="actorsTab" name="actors" value ="">
+					<input type="text" class="actor-input input-recherche-acteur" id="modal-choose-actor-cinema" placeholder="Saisissez le nom d’un acteur.ice">
+					<div class="suggestions-container"></div>
+				</div>
+            </div>
+            <div class="row" id="actor-tag">
+                <div class="col-12 col-md-3">                   
+                </div>
+                
+                <div class="espace-tag">
+                </div>
+                
+                <div class="espace">
+                </div>
+            </div>
+            <div class="col-12">
+                <div id="directors-container">
+                    <label for="modal-choose-director-cinema"></label>
+                     <input type="hidden" id="directorTab" name="directors" value ="">
+                    <input type="text" class="input-recherche-acteur" id="modal-choose-director-cinema" placeholder="Saisissez le nom d’un réalisateur.ice"></br>
+                    <div class="suggestions-container"></div>
+                </div>
+            </div>
+            <div class="row" id="director-tag">
+                <div class="col-12 col-md-3">
+                </div>
+              
+                <div class="espace-tag">
+                </div>
+               
+                <div class="espace">
+                </div>
+            </div>
+            <div class="espace">
+            </div>
+            <div class="col-md-8">
+                <div>Choisissez vos préférences de langue et sous-titre :</div>
+                <div class="langue-form-check">
+                    <input class="form-check-input radioInput" type="radio" name="language" value="VF" id="language">
+                    <label class="form-check-label" for="language">
+                        Version Française (VF)
+                    </label>
+                </div>
+                <div class="langue-form-check">
+                    <input class="form-check-input radioInput" type="radio" name="language" value="VOSTR" id="language">
+                    <label class="form-check-label" for="language">
+                        Version Originale Sous-Titrée en Français (VOSTFR)
+                    </label>
+                </div>
+                <div class="langue-form-check">
+                    <input class="form-check-input radioInput" type="radio" name="language" value="Audiodescription" id="language">
+                    <label class="form-check-label" for="language">
+                        Audiodescription
+                    </label>
+                </div>
+            </div>
+            <div class="row espace-fin">
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-2">
+                    <a class="bouton-retour" href="modale-preferences-film-genre.html">
+                        <img src="./assets/icones/fleche-gauche-xs.svg" alt="Flèche gauche">Retour
+                    </a>
+                </div>
+                <div class="col-md-2 suivant">
+					<button type="submit" id="submit" class="secondaire bouton-modale">
+					<span>Suivant</span>
+					<img src="./assets/icones/arrow-s.svg" alt="Flèche droite bleue">
+					</button> 
+                </div>
+            </div>
+            <div class="espace-fin"> </div>
+        </form>
+</form>
+

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+
+<h1>Show user</h1>
+
+ {{user.firstname}} + {{user.email}}
+
+ {# <p>Réalisateur : {{ user.preferences.director }}</p>
+ <p>Préférence de placement: {{ user.preferences.seats }}</p> #}
+
+{% endblock %}

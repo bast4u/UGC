@@ -1,0 +1,74 @@
+<form action="" method="POST" id="modal-form">
+    <input type="hidden" name="form-name" id="form-name" value="{{formName}}">
+    <input type="hidden" name="step" id="step" value="{{step}}">
+    <input type="hidden" name="previous-step" id="previous-step" value="{{previousStep}}">
+
+    <div class="modal-body">
+        {% if message %}
+        <div class="alert alert-danger" role="alert">
+            {{message|raw}}
+        </div>
+        {% endif %}
+
+    <div class="d-flex justify-content-between picto-haut">
+        <div >
+                <a href="modale-message.html"><img src="assets/icones/fleche-gauche.svg" alt="Icône Retour"></a>
+        </div>
+        
+        <div class="row">
+            
+            <div class="bandeau-blanc col-12">
+                <h1 class="text-center">Votre zone d’emplacement préférée dans une salle ugc</h1>
+            </div>
+            <div class="col-12">
+                <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100" style="height: 10px"><!-- RÉDUCTION TAILLE -->
+                    <div class="progress-bar" style="width: 40%"></div><!-- Modif %-->
+                </div>
+                <div class="row">
+                    <div class="icone-titre col-12">
+                        <img class="moncompte" src="assets/icones/fauteuil-s.svg" alt="Compte"
+                            style="display: inline-block;">
+                        <span class="compte" href="#">Choisissez votre zone d’emplacement préférée&nbsp;: </span>
+                    </div>
+                    <div class="d-flex justify-content-center ecran">
+                        
+                        <table class = "cadre">
+                            <div class="row">
+                                {% for row in 1..10 %} {# Boucle pour chaque rangée #}
+                                    <tr class ="tr-size {% if row == 3 or row == 7 %}space-after{% endif %}">
+                                        {% for seat in 1..18 %} {# Boucle pour chaque siège dans la rangée #}
+                                            <td class ="td-size">
+                                                <label>
+                                                    <input class="inputSeats" type="checkbox" id="checkboxSeat-{{row}}-{{seat}}" name="seats[]" value="{{ row ~ '-' ~ seat }}">
+                                                    <label for="checkboxSeat-{{row}}-{{seat}}"></label>
+                                                </label>
+                                            </td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                            </div>
+                        </table>
+                      
+                    </div>
+                </div>
+                <div class="row espace-fin">
+                    <div class="col-6">
+                    </div>
+                    <div class="col-md-2">
+                        <a class="bouton-retour" href="modale-cinemas-preferes.html">
+                            <img src="./assets/icones/fleche-gauche-xs.svg" alt="Flèche gauche">Retour
+                        </a>
+                    </div>
+                    <div class="col-md-2 suivant">
+                       <button type="submit" id="submit" class="secondaire bouton-modale">
+                       <span>Suivant</span><img src="./assets/icones/arrow-s.svg" alt="Flèche droite bleue">
+                       </button>   
+                    </div>
+
+                </div>
+            </div>
+            <div class="espace-fin"> </div>
+        </div>
+    </div>
+</form>

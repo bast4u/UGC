@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Mes réservations UGC{% endblock %}
+
+{% block body %}
+<main>
+        <section id="zone-centrale">
+            <div class="container">
+                <div class="row align-items-stretch">
+
+{{include ("shared/_body.html.twig")}}
+
+                    <article class="col-10 col-md-10 top-article"> <!-- zone principale droite -->
+
+                        <h1>Mes Réservations</h1>
+
+                    </article>
+                    <!-- FIN ZONE CENTRALE -->
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+{% endblock %}

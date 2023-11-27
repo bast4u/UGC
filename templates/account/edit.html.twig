@@ -1,0 +1,135 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+<style>
+    
+.bouton-modale {
+    display: flex;
+    align-items: center;
+    padding: 6px 30px;
+    justify-content: center;
+    border: 0;
+    border-radius: 10px;
+    font-size: 0.94rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.75px;
+    width: auto;
+}
+
+.bouton-modale span {
+    padding-top: 5px;
+    margin-right: 10px;
+}
+
+</style>
+
+
+    <body class="espace-top">
+    <div class="container modale taille">
+ 
+    <form class="row">
+        {{form_start(form)}}
+        {{ form_row(form._token) }}
+        {{form_errors(form)}}
+        <div class="d-flex picto-haut">
+           
+            <div class="d-flex justify-content-end croix">
+                <a href="{{path('app_my_account_show')}}"><img src="/assets/icones/cross.svg" alt="Croix blanche"></a>
+            </div>
+        </div>
+        <div class="bandeau-blanc col-12">
+            <h1 class="text-center">Mes informations personnelles</h1>
+        </div>
+        <div class="col-12">
+            
+        </div>
+        <div class="row">
+            <div class="icone-titre col-12">
+                <img class="moncompte" src="/assets/icones/compte.svg" alt="Compte">
+                <span class="compte" href="#">Saisissez vos informations :</span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="madame" value="madame" checked>
+                <label class="form-check-label" for="inlineRadio1">Madame</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="monsieur" value="monsieur">
+                <label class="form-check-label" for="inlineRadio2">Monsieur</label>
+            </div>
+            <div class="col-md-6">
+                <label for="inputName" class="form-label"></label>
+                <input type="text" class="input-infos-persos form-control" placeholder="Willem">
+            </div>
+            <div class="col-md-6">
+                <label for="inputFirstname" class="form-label">Prénom*</label>
+                <input type="text" class="input-infos-persos form-control" placeholder="Laurent">
+            </div>
+            <div class="col-md-6">
+                <label for="inputBirth" class="form-label">Date de naissance*</label>
+                <input type="text" class="input-infos-persos form-control" placeholder="15/07/1991">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword" class="form-label">Mot de passe*</label>
+                <input type="text" class="input-infos-persos form-control" placeholder="XXXXXXXXXX">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPasswordconfirmed" class="form-label">Confirmer le mot de passe*</label>
+                <input type="text" class="input-infos-persos form-control" placeholder="XXXXXXXXXX">
+            </div>
+        </div>
+        <div class="partie-droite col-md-6">
+            <div class="col-md-6">
+                <label for="inputEmail" class="form-label">Adresse email*</label>
+                <input type="email" class="input-infos-persos form-control" placeholder="laurent.willem@gmail.com" id="inputEmail">
+            </div>
+            <div class="col-md-6">
+                <label for="inputMobile" class="form-label">Téléphone mobile</label>
+                <input type="text" class="input-infos-persos form-control" id="inputMobile" placeholder="06 XX XX XX XX">
+            </div>
+            <div class="col-12">
+                <label for="inputAddress" class="form-label">Adresse</label>
+                <input type="text" class="input-infos-persos form-control" id="inputAddress" placeholder="12 rue de Tassigny">
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="inputZip" class="form-label">Code Postal</label>
+                    <input type="text" class="input-infos-persos form-control" id="inputZip" placeholder="91230">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputCity" class="form-label">Ville</label>
+                    <input type="text" class="input-infos-persos form-control" id="inputCity" placeholder="Arpajon">
+                </div>
+            </div>
+            <div class="col-12">
+                <label for="inputState" class="form-label">Pays</label>
+                <input type="text" class="input-infos-persos form-control" id="inputState" placeholder="France">
+            </div>
+        </div>
+      
+
+        <div class="d-flex justify-content-between espace-fin">
+            <div class="phrase-modale">
+                <div>*Champs obligatoires</div>
+            </div>
+            
+            <div class="suivant">
+                <a class="secondaire bouton-modale" href="{{path('app_my_account_show')}}">
+                    <span>Suivant</span>
+                    <img src="/assets/icones/arrow-s.svg" alt="Flèche droite bleue">
+                </a>
+            </div>
+
+        </div>
+        {{form_end(form, {render_rest:false})}}
+    </form>
+    
+    </div>
+</body>
+
+{% endblock %}

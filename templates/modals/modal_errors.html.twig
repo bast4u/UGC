@@ -1,0 +1,21 @@
+<form action="" method="POST" id="modal-form">
+	<input type="hidden" name="form-name" id="form-name" value="{{formName}}">
+	<input type="hidden" name="step" id="step" value="{{step}}">
+	<input type="hidden" name="previous-step" id="previous-step" value="{{previousStep}}">
+
+	<div class="modal-header">
+		<h2 class="modal-title fs-5" id="ModalLabel">Vous avez commis des erreurs</h2>
+		{# <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> #}
+	</div>
+	<div class="modal-body">
+		{% if message %}
+			<div class="alert alert-danger" role="alert">
+				{{message|raw}}
+			</div>
+	{% endif %}
+
+    </div>
+    <div class="modal-footer">
+       {# <a href="{{ path('app_modals_previous_step') }}">Retour à l'étape précédente</a> #}
+    </div>
+</form>

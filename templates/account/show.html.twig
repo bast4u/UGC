@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+   <a class="btn btn-secondary" href="{{ path('app_my_account_edit') }}">Modifier mon compte</a>
+    <p>Bonjour {{ user.firstname }}
+ 
+    </p>
+    <p>Nom: {{ user.lastname }}</p>
+    <p>Code postale: {{ user.postalCode }}</p>
+    <p>Ville: {{ user.city }}</p>
+    <p>Téléphone: {{ user.phone }}</p>
+    <p>Adresse{{ user.address }}</p>
+   
+    <p>Email {{ user.email }}</p>
+    <p>Date de Naissance: {{ user.dateOfBirth ? user.dateOfBirth.format('d/m/Y') : '' }}</p>
+    <p>Préférence de placement: {{ user.seats }}</p>
+   
+    <p>Réalisateur :</p> 
+     <ul>
+        {% for director in user.director %}
+            <li>{{ director }}</li>
+        {% endfor %}
+    </ul>
+      
+
+
+
+    <p>Acteurs :</p>
+    <ul>
+        {% for actor in user.actor %}
+            <li>{{ actor }}</li>
+        {% endfor %}
+    </ul>
+
+      <p>Catégorie de films :</p>
+    <ul>
+        {% for genre in user.genres %}
+            <li>{{ genre }}</li>
+        {% endfor %}
+    </ul>  
+    <p>Localisation du cinéma :</p>
+    <ul>
+        {% for location in user.location %}
+            <li>{{ location }}</li>
+        {% endfor %}
+    </ul> 
+  
+{% endblock %}

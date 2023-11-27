@@ -1,0 +1,466 @@
+/* CSS MODALES*/
+
+/* .modale{
+    background: var(--radial-gradient-bas-de-page, radial-gradient(78.01% 36.06% at 50.00% 100.00%, #00558E 0%, #010A3D 99.56%));
+
+} */
+
+
+/* CSS MODALE COMMUNES */
+/* body {
+    background:  radial-gradient(78.01% 36.06% at 50.00% 100.00%, #00558E 0%, #010A3D 99.56%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    background-attachment: fixed;
+    
+   
+    font-family: 'uniform-regular';
+    font-size:1.25rem; 
+    text-transform:none;
+}
+
+.modalBody{
+    background: radial-gradient(78.01% 36.06% at 50.00% 100.00%, #00558E 0%, #010A3D 99.56%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'uniform-regular';
+    font-size: 1.25rem;
+    text-transform: none; 
+}
+*/
+
+.modal .modal-content {
+    background: radial-gradient(78.01% 36.06% at 50.00% 100.00%, #00558E 0%, #010A3D 99.56%);
+}
+
+.modal  .espace-top{
+    margin-top: 10px;
+}
+
+.modal  .bandeau-blanc h1{
+    padding-top: 0;
+}
+
+
+.modal  .text-regular {
+    font-weight: bold;
+}
+
+.modal  .mot-gras{
+    font-weight:500;
+}
+
+.modal  .bandeau-blanc {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background: #FFFCFC;
+    color: #010A3D;
+    padding-top: 10px;
+}
+
+.modal  .progress-bar {
+    border-radius: 0px 50px 50px 0px;
+    background: var(--radial-gradient-progression, radial-gradient(92.31% 92.31% at 50.00% 20.51%, #40B3D1 0%, #00558E 100%));
+
+}
+
+.modal  .progress {
+    background: #010A3D;
+    margin-left: -11px;
+
+}
+
+.modal  .icone-titre {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+
+}
+
+.modal a.bouton-retour {
+    color: white;
+    text-decoration: underline;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 0.94rem;
+    text-transform: uppercase;
+    padding: 10px 0;
+    width: auto;
+}
+.modal  .picto-haut{
+    align-items: center;
+}
+
+.modal  .bouton-retour img {
+    margin-right: 10px;
+    margin-bottom: 2px;
+
+}
+
+
+.modal .bouton{
+    margin-left: 12px;
+
+}
+
+.modal .bouton img {
+    margin-left: 10px;
+
+}
+
+.modal  .bouton-modale {
+    display: flex;
+    align-items: center;
+    padding: 6px 30px;
+    justify-content: center;
+    border: 0;
+    border-radius: 10px;
+    font-size: 0.94rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.75px;
+    width: auto;
+    /* trouver le moyen de centrer verticalement */
+}
+
+.modal  .bouton-modale span {
+    padding-top: 5px;
+    margin-right: 10px;
+}
+
+.modal  .suivant .bouton span {
+padding-top:5px;
+}
+
+.modal  .bouton-selectionne{
+    display: flex;
+    flex-direction: row;
+    padding: 6px 0;
+    justify-content:center;
+    border: 0;
+    border-radius: 10px;
+    font-size: 0.94rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing:0.75px;
+    width:auto; 
+}
+
+.modal  .bouton-selectionne:hover{
+    opacity: 80%;
+}
+
+.modal  .bouton-selectionne img {
+    margin-right: 10px;
+
+}
+
+.modal  .bouton-selectionne span{
+    padding-top: 5px;
+} 
+
+.modal  .suppression-tag-modale {
+    background: transparent;
+    color: #fffcfc;
+    border: 1px solid #40B3D1;
+    border-radius: 10px;
+    font-family: 'uniform-medium';
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.96px;
+    width: 80%;
+    padding: 8px 20px;
+    left: 15%;
+    top: -30px;
+    margin-top: 20px;
+    background-image: url('../icones/cross-xs-bleu-lumiere.svg');
+    background-position: center left 90%;
+    background-repeat: no-repeat;
+
+}
+
+
+/* CSS INFOS PERSOS*/
+
+.modal  .moncompte {
+    margin-right: 11px;
+}
+
+.modal  .input-infos-persos {
+    border-radius: 10px;
+    border: 1px solid var(--bleu-lumire, #40B3D1);
+    margin-bottom: 10px;
+    background-color: transparent;
+
+}
+
+.modal .form-control {
+    color : white;
+}
+
+.modal  .input-infos-persos::placeholder {
+    color: #40B3D1;
+    
+}
+
+
+.modal  .partie-droite {
+    margin-top: 29px;
+
+}
+
+
+
+.modal  .compte {
+    padding-top: 5px;
+}
+
+
+.modal  .espace-fin {
+    padding-top: 30px;
+    
+
+}
+
+.modal  .espace-fin-genre{
+    padding-top: 60px;
+
+
+}
+
+
+/* CSS PRÉFÉRENCES FILM*/
+
+
+.modal  .espace {
+    margin-top: 30px;
+
+}
+
+.modal  .langue-form-check {
+    margin-top: 15px;
+
+}
+
+.modal  .form-check-input {
+    margin-right: 15px;
+
+}
+
+.modal  .input-recherche-acteur {
+    border: 1px solid #40B3D1;
+    background-color: transparent;
+    border-radius: 10px;
+    background-image: url(../icones/loupe-s-bleu-lumiere.svg);
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    width: 35%;
+    color: #40B3D1;
+    font-family: "uniform-regular";
+    font-size: 1.25rem;
+    padding: 8px 70px 8px 8px;
+    margin-top: 10px;
+
+}
+
+.modal  .input-recherche-acteur:focus{
+    background-color: #fffcfc;
+    color: #010A3D;
+}
+
+.modal  .input-recherche-acteur::placeholder {
+    color: #40B3D1;
+}
+
+.modal #actor-tag {
+    margin-bottom: 50px;
+}
+
+.modal  .form-check-input {
+    background-color: transparent;
+    border-color: #FFFCFC
+}
+
+.modal  .form-check-input:checked {
+    background-color: transparent;
+    border-color: #FFFCFC;
+}
+
+.modal #directors-container {
+    margin-top: 30px;
+}
+
+
+/* CSS PRÉFÉRENCES FILM GENRE*/
+
+.modal  .genre-tableau {
+    background-color: transparent;
+    color: #FFFCFC;
+    border: 1px solid #40B3D1;
+    border-radius: 10px; 
+}
+
+.modal  .table{
+    flex-basis: 50%;
+}
+
+.modal #genres .option {
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+.modal .option {
+    margin: 20px;
+}
+
+.modal #genres {
+    width: 100%;
+    padding-right: 100px;
+}
+
+.modal  .genre-tableau::-webkit-scrollbar {
+    width: 10px;
+}
+
+.modal  .genre-tableau::-webkit-scrollbar-thumb {
+    background-color: #00558E;
+    border-radius: 5px;
+}
+
+
+/* CSS MODALE MESSAGE */
+
+.modal  .text-regular{
+    font-family: 'uniform-regular';
+    font-size: 1.56rem;
+}
+.modal  .mot-bold{
+    font-family: "uniform-black";
+}
+
+
+.modal  .espace-message{
+    padding-top: 20px;
+
+}
+
+
+.modal  .cine {
+    margin-right: 20px;
+
+}
+
+.modal  .bobine {
+    margin-right: 20px;
+
+}
+
+.modal  .abonnement {
+    margin-right: 19px;
+
+}
+
+.modal  .cadeau {
+    margin-right: 27px;
+
+}
+
+.modal .btn-submit {
+    opacity: 0;
+}
+
+/* CSS EMPLACEMENT */
+
+.modal .ecran {
+    background: top no-repeat url("../images/ecran.svg");
+}
+
+.modal .cadre {
+    margin-top: 70px;
+    margin-left: 25px;
+}
+
+.modal .td-size:nth-child(4), .td-size:nth-child(14) {
+    padding-right: 30px;
+}
+
+.modal .space-after {
+    border-bottom: 20px solid transparent;
+}
+
+.modal .inputSeats {
+    position: absolute;
+    opacity: 0;
+}
+
+.modal input[type='checkbox'].inputSeats + label {
+    background-image: url("../icones/fauteuil-seul-vide.svg");
+    background-size: cover;
+    width: 23px;
+    height: 23px;
+}
+
+.modal input[type='checkbox'].inputSeats:checked + label {
+    background-image: url("../icones/fauteuil-seul-select.svg");
+}
+
+.modal .seat-number {
+    display: none;
+}
+
+/* CSS FIDELITE */
+
+.modal  .separateur {
+    border-top: #A31F58 solid 2px;
+    margin: 40px 0 40px;
+
+}
+
+
+/* CSS CINEMAS PREFERES */
+
+.modal  .inputvillecp-modale {
+    border: 1px solid #40B3D1;
+    background-color: transparent;
+    border-radius: 10px;
+    background-image: url(../icones/loupe-s-bleu-lumiere.svg);
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    color: #40B3D1;
+    font-family: "uniform-regular";
+    font-size: 1.25rem;
+    padding: 8px 130px 8px 30px;
+
+}
+.modal  .inputvillecp-modale:focus{
+    background-color: #fffcfc;
+    color: #010A3D;
+}
+
+.modal  .inputvillecp-modale::placeholder {
+    color: #40B3D1;
+
+}
+
+.modal img.arrow-cine-modale {
+    position: absolute;
+    top: 474px;
+    left: 74%;
+    z-index: 100;
+    width: 74px;
+}
+
+
+.modal  .espace-fin-prefere{
+    padding-top: 50px;
+
+
+}
+
+.modal  .mentions a{
+    color: #fffcfc;
+}
