@@ -2,8 +2,7 @@
 
 ## Installer l'environnement de développement
 
-
-### Installer PHP8, Composer, Symfony & MongoDB
+### Installer PHP, Composer, Symfony & MongoDB
 
 Les étapes varient en fonction votre OS, voir:
 
@@ -18,7 +17,7 @@ Les étapes varient en fonction votre OS, voir:
 
 ```shell
 mkdir Code
-cd Code && git clone https://github.com/teamugc/projet_ugc.git
+cd Code && git clone https://github.com/bast4u/UGC.git
 ```
 
 
